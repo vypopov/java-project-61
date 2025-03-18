@@ -21,7 +21,6 @@ jobs:
       with:
         gradle-version: '8.12'
     - name: build with Gradle
-      working-directory: app
       run: ./gradlew build
     - name: Run checkstyle
       run: ./gradlew checkstyleMain
