@@ -1,3 +1,6 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 plugins {
     id("java")
     id("com.github.ben-manes.versions") version "0.52.0"
@@ -30,5 +33,13 @@ tasks.getByName("run", JavaExec::class) {
 }
 tasks.test {
     useJUnitPlatform()
+    // https://technology.lastminute.com/junit5-kotlin-and-gradle-dsl/
+    testLogging {
+        exceptionFormat = TestExceptionFormat.FULL
+        events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
+        // showStackTraces = true
+        // showCauses = true
+        showStandardStreams = true
+    }
 }
 tasks.jacocoTestReport { reports { xml.required.set(true) } }
