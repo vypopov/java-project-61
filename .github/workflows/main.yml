@@ -21,11 +21,14 @@ jobs:
       with:
         gradle-version: '8.12'
     - name: build with Gradle
-      run: ./gradlew build --scan
+      working-directory: another-build
+      run: ./gradlew build
     - name: Run checkstyle
-      run: ./gradlew checkstyleMain --scan
+      working-directory: another-build
+      run: ./gradlew checkstyleMain
     - name: Run test
-      run: ./gradlew test --scan
+      working-directory: another-build
+      run: ./gradlew test
     - name: Publish code coverage
       uses: paambaati/codeclimate-action@v9.0.0
       env:
