@@ -18,7 +18,7 @@ jobs:
       with:
         arguments: build
         gradle-version: 8.12
-        build-root-directory: app/src/main/java
+        build-root-directory: app
     - run: ./gradlew checkstyleMain
     - run: ./gradlew test
     - name: Publish code coverage
