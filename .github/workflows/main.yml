@@ -31,11 +31,13 @@ jobs:
     - name: Run test
       working-directory: app
       run: ./gradlew test
+
     - name: Fix gradlew permissions
       run: chmod +x ${{github.workspace}}/app/gradlew
+
     - name: Generate JaCoCo Report
       working-directory: app
-      run: ./gradlew jacocoTestReport --rerun-tasks
+      run: ${{github.workspace}}/app/gradlew jacocoTestReport --rerun-tasks
 
         # Шаг 7: Проверка наличия отчета
     - name: Check JaCoCo Report
@@ -48,7 +50,7 @@ jobs:
       uses: paambaati/codeclimate-action@v9.0.0
       env:
          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-         JACOCO_SOURCE_PATH: app/src/main/java
+         JACOCO_SOURCE_PATH: ${{github.workspace}}/app/src/main/java
       with:
         coverageCommand: ${{github.workspace}}/app/gradlew jacocoTestReport
         coverageLocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
