@@ -14,8 +14,8 @@ jobs:
     - name: Install Java
       uses: actions/setup-java@v4
       with:
-        java-version: '22'
-        distribution: 'temurin'
+        java-version: '21'
+        distribution: 'openjdk'
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
       with:
@@ -29,13 +29,23 @@ jobs:
     - name: Run test
       working-directory: app
       run: ./gradlew test
-    - name: Publish code coverage
 
+    - name: Generate JaCoCo Report
+      working-directory: app
+      run: ./gradlew jacocoTestReport --rerun-tasks
+
+        # Шаг 7: Проверка наличия отчета
+    - name: Check JaCoCo Report
+      working-directory: app
+      run: |
+           ls -l build/jacoco/test.exec
+           ls -l build/reports/jacoco/test/jacocoTestReport.xml
+
+    - name: Publish code coverage
       uses: paambaati/codeclimate-action@v9.0.0
       env:
          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
          JACOCO_SOURCE_PATH: app/src/main/java
       with:
          coverageCommand: make report
-         workingDirectory: 'app'
          coverageLocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
