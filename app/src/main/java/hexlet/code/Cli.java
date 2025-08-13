@@ -8,7 +8,7 @@ public class Cli {
         System.out.println("May I have your name?");
         Scanner sc = new Scanner(System.in);
         if (sc.hasNextLine()) {
-            player.setName(sc.nextLine());
+            player.setName(sc.next());
             System.out.println("Hello, "
                     + player.getName() + "!");
             sc.close();
