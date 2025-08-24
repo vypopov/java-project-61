@@ -11,7 +11,6 @@ public class Cli {
             player.setName(sc.next());
             System.out.println("Hello, "
                     + player.getName() + "!");
-            sc.close();
         } else {
             System.out.println("No name entered!");
         }
