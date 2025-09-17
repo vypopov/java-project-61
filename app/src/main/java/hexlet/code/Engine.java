@@ -8,6 +8,7 @@ public class Engine {
     private final int winRoundCount = 3;
     private String answerTemplate = "Your answer: {0}";
     private String answer;
+    private String wrongAnswerTemplate = "{0} is wrong answer ;(. Correct answer was {1}.";
 
     public Engine(Player player) {
         niceAnswerCnt = 0;
@@ -52,12 +53,18 @@ public class Engine {
         }
     }
 
-    public void checkPlayerAnswer(Player player, String playerAnswer, String correctAnswer, String wrongAnswerMessage) {
+    public void checkPlayerAnswer(Player player, String playerAnswer, String correctAnswer) {
         if (playerAnswer.equals(correctAnswer)) {
             System.out.println("Correct!");
             setNiceAnswerCnt();
         } else {
-            System.out.println(MessageFormat.format(wrongAnswerMessage, playerAnswer, correctAnswer, player.getName()));
+            System.out.println(
+                    MessageFormat.format(
+                            wrongAnswerTemplate,
+                            "'" + playerAnswer + "'",
+                            "'" + correctAnswer + "'")
+            );
+            System.out.println("Let's try again, " + player.getName() + "!");
             setNiceAnswerCntDefault();
             System.exit(0);
         }
