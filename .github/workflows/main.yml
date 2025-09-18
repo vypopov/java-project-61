@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latestд
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout sources
@@ -54,4 +54,5 @@ jobs:
       with:
         workingDirectory: ${{github.workspace}}/app
         coverageCommand: make report
+
         coverageLocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
