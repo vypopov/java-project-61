@@ -6,52 +6,43 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latestд
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout sources
-      uses: actions/checkout@v4
-    - name: Check directory structure
-      run: ls -R
-    - name: Install Java
-      uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'temurin'
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v4
-      with:
-        gradle-version: '8.12'
-    - name: build with Gradle
-      working-directory: app
-      run: ./gradlew build
-    - name: Run checkstyle
-      working-directory: app
-      run: ./gradlew checkstyleMain
-    - name: Run test
-      working-directory: app
-      run: ./gradlew test
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Install Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.12'
+      - name: build with Gradle
+        working-directory: app
+        run: ./gradlew build
+      - name: Run checkstyle
+        working-directory: app
+        run: ./gradlew checkstyleMain
 
-    - name: Fix gradlew permissions
-      run: chmod +x ${{github.workspace}}/app/gradlew
+      - name: Fix gradlew permissions
+        run: chmod +x ${{github.workspace}}/app/gradlew
 
-    - name: Generate JaCoCo Report
-      working-directory: app
-      run: ${{github.workspace}}/app/gradlew jacocoTestReport --rerun-tasks
-
-        # Шаг 7: Проверка наличия отчета
-    - name: Check JaCoCo Report
-      working-directory: app
-      run: |
-           ls -l build/jacoco/test.exec
-           ls -l build/reports/jacoco/test/jacocoTestReport.xml
-
-    - name: Publish code coverage
-      uses: paambaati/codeclimate-action@v9.0.0
-      env:
-         CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-         JACOCO_SOURCE_PATH: ${{github.workspace}}/app/src/main/java
-      with:
-        workingDirectory: ${{github.workspace}}/app
-        coverageCommand: make report
-        coverageLocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
+      - name: Cache SonarQube packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-gradle
+      - name: Build and analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          run: ./gradlew build sonar --info
