@@ -26,10 +26,8 @@ jobs:
       - name: Run checkstyle
         working-directory: app
         run: ./gradlew checkstyleMain
-
       - name: Fix gradlew permissions
         run: chmod +x ${{github.workspace}}/app/gradlew
-
       - name: Cache SonarQube packages
         uses: actions/cache@v4
         with:
@@ -45,4 +43,4 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          run: ./gradlew build sonar --info
+        run: ./gradlew build sonar --info
