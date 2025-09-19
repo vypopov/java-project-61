@@ -1,5 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/vypopov/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/vypopov/java-project-61/actions)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/c434bf64dbae8b8447a7/test_coverage)](https://codeclimate.com/github/vypopov/java-project-61/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/c434bf64dbae8b8447a7/maintainability)](https://codeclimate.com/github/vypopov/java-project-61/maintainability)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vypopov_java-project-61&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=vypopov_java-project-61)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=vypopov_java-project-61)](https://sonarcloud.io/summary/new_code?id=vypopov_java-project-61)
+[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-dark.svg)](https://sonarcloud.io/summary/new_code?id=vypopov_java-project-61)
 [![asciicast](https://asciinema.org/a/an9xusGjGfkdupU9bzULfdvh3.svg)](https://asciinema.org/a/an9xusGjGfkdupU9bzULfdvh3)
