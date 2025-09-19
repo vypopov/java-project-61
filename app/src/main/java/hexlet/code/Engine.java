@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Engine {
     private int niceAnswerCnt;
-    private static final int winRoundCount = 3;
+    private static final int WINROUNDCOUNT = 3;
     private String answerTemplate = "Your answer: {0}";
     private String answer;
     private String wrongAnswerTemplate = "{0} is wrong answer ;(. Correct answer was {1}.";
@@ -27,7 +27,7 @@ public class Engine {
     }
 
     public int getWinRoundCount() {
-        return this.winRoundCount;
+        return WINROUNDCOUNT;
     }
 
     public String getTask(String task) {

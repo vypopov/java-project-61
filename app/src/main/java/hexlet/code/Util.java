@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Random;
 
-public class Util {
+public final class Util {
     private static final Random RAND = new Random();
 
     public static int getRandomInRange(int min, int max) {
