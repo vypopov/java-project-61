@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Engine {
     private int niceAnswerCnt;
-    private final int winRoundCount = 3;
+    private static final int winRoundCount = 3;
     private String answerTemplate = "Your answer: {0}";
     private String answer;
     private String wrongAnswerTemplate = "{0} is wrong answer ;(. Correct answer was {1}.";
@@ -49,7 +49,7 @@ public class Engine {
                 this.answer = sc.nextLine();
             }
         } catch (Exception e) {
-            System.out.println("Input error: " + e.getMessage());
+            throw new RuntimeException("Error", e);
         }
     }
 

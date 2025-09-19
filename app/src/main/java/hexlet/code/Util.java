@@ -12,4 +12,7 @@ public class Util {
     public static int getRandom() {
         return RAND.nextInt();
     }
+    private Util() {
+        throw new IllegalStateException("Utility class");
+    }
 }

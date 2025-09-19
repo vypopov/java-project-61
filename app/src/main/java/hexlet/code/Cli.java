@@ -15,4 +15,7 @@ public class Cli {
             System.out.println("No name entered!");
         }
     }
+    private Cli() {
+        throw new IllegalStateException("Utility class");
+    }
 }
