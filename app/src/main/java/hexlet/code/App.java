@@ -19,21 +19,16 @@ public class App {
                 """;
         System.out.println(startMsg);
         var usrChose = sc.nextLine();
-        System.out.println("Your choice:" + usrChose);
+        System.out.printf("Your choice: %s%n", usrChose);
         switch (usrChose) {
-            case "1":
-                Cli.start(player);
-                break;
-            case "2":
-                Even.start(player);
-                break;
-            case "3":
-                Calc.start(player);
-                break;
-            default:
-                System.out.println("You must chose games(1-3) or quit(0)!");
-                break;
+            case "1" -> Cli.start(player);
+            case "2" -> Even.start(player);
+            case "3" -> Calc.start(player);
+            case "0" -> {
+                System.out.println("Exit...");
+                System.exit(0);
+            }
+            default -> throw new UnsupportedOperationException("Invalid operation.");
         }
-
     }
 }

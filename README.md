@@ -4,4 +4,10 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=vypopov_java-project-61&metric=bugs)](https://sonarcloud.io/summary/new_code?id=vypopov_java-project-61)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=vypopov_java-project-61&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=vypopov_java-project-61)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=vypopov_java-project-61&metric=coverage)](https://sonarcloud.io/summary/new_code?id=vypopov_java-project-61)
-[![asciicast](https://asciinema.org/a/an9xusGjGfkdupU9bzULfdvh3.svg)](https://asciinema.org/a/an9xusGjGfkdupU9bzULfdvh3)
+## 🎮 Demonstration
+
+### Game "Even"
+[![Even Game Demo](https://asciinema.org/a/an9xusGjGfkdupU9bzULfdvh3.svg)](https://asciinema.org/a/an9xusGjGfkdupU9bzULfdvh3)
+
+### Game "Calc"
+[![Calc Game Demo](https://asciinema.org/a/PEJaPFdXO7jdyL9AgX7uGbDTr.svg)](https://asciinema.org/a/PEJaPFdXO7jdyL9AgX7uGbDTr)
