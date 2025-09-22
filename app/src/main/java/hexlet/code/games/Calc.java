@@ -1,4 +1,4 @@
-package hexlet.code.Game;
+package hexlet.code.games;
 
 import hexlet.code.Player;
 import hexlet.code.Util;
@@ -15,7 +15,7 @@ public class Calc {
             var currentOperation = OPERATION.charAt(Util.getRandomInRange(0, OPERATION.length() - 1));
             int numLeft = Util.getRandomInRange(0, 100);
             int numRight = Util.getRandomInRange(0, 100);
-            String question = "" + numLeft + currentOperation + numRight;
+            String question = String.format("%s %s %s", numLeft, currentOperation, numRight);
             int correctAnswer = switch (currentOperation) {
                 case '+' -> numLeft + numRight;
                 case '-' -> numLeft - numRight;
