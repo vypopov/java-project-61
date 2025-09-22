@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class Engine {
+public final class Engine {
     private int niceAnswerCnt;
     private static final int WINROUNDCOUNT = 3;
     private final String answerTemplate = "Your answer: %s%n";

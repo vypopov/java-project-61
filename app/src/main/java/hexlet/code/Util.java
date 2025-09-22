@@ -4,6 +4,9 @@ import java.util.Random;
 
 public final class Util {
     private static final Random RAND = new Random();
+    private static final int FIRST_PRIME = 2;
+    private static final int SECOND_PRIME = 3;
+    private static final int STEP_FOR_ODD_CHECK = 2;
 
     public static int getRandomInRange(int min, int max) {
         return Math.abs(RAND.nextInt((max - min) + 1) + min);
@@ -45,10 +48,18 @@ public final class Util {
     }
 
     public static boolean isPrime(int num) {
-        if (num == 2) return true;
-        if (num <= 1 || num % 2 == 0) return false;
-        for (int i = 3; i <= Math.sqrt(num); i += 2) {
-            if (num % i == 0) return false;
+        if (num == FIRST_PRIME) {
+            return true;
+        }
+        if (num <= 1 || num % FIRST_PRIME == 0) {
+            return false;
+        }
+
+        final double sqrtLimit = Math.sqrt(num);
+        for (int i = SECOND_PRIME; i <= sqrtLimit; i += STEP_FOR_ODD_CHECK) {
+            if (num % i == 0) {
+                return false;
+            }
         }
         return true;
     }

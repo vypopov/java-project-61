@@ -1,15 +1,15 @@
 package hexlet.code;
 
-public class Player {
+public final class Player {
     private String name;
 
-    Player(String name) {
-        this.name = name;
+    public Player(String playerName) {
+        this.name = playerName;
     }
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String playerName) {
+        this.name = playerName;
     }
 }

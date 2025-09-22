@@ -7,14 +7,16 @@ import hexlet.code.Engine;
 public class Calc {
     private static final String TASK = "What is the result of the expression?";
     private static final String OPERATION = "+-*";
+    private static final int MIN_BOUND_FOR_RANDOM = 1;
+    private static final int MAX_BOUND_FOR_RANDOM = 100;
 
     public static void start(Player player) {
         Engine game = new Engine(player);
         game.getTask(TASK);
         while (game.getNiceAnswerCnt() < game.getWinRoundCount()) {
-            var currentOperation = OPERATION.charAt(Util.getRandomInRange(0, OPERATION.length() - 1));
-            int numLeft = Util.getRandomInRange(0, 100);
-            int numRight = Util.getRandomInRange(0, 100);
+            var currentOperation = OPERATION.charAt(Util.getRandomInRange(MIN_BOUND_FOR_RANDOM - 1, OPERATION.length() - 1));
+            int numLeft = Util.getRandomInRange(MIN_BOUND_FOR_RANDOM, MAX_BOUND_FOR_RANDOM);
+            int numRight = Util.getRandomInRange(MIN_BOUND_FOR_RANDOM, MAX_BOUND_FOR_RANDOM);
             String question = String.format("%s %s %s", numLeft, currentOperation, numRight);
             int correctAnswer = switch (currentOperation) {
                 case '+' -> numLeft + numRight;
