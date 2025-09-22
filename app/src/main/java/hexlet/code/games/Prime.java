@@ -9,6 +9,7 @@ public class Prime {
 
     public static void start(Player player) {
         Engine game = new Engine(player);
+        game.getTask(TASK);
         while (game.getNiceAnswerCnt() < game.getWinRoundCount()) {
             int question = Util.getRandomInRange(1, 1000);
             var correctAnswer = Util.isPrime(question) ? "yes" : "no";
