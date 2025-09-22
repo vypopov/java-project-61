@@ -11,3 +11,9 @@
 
 ### Game "Calc"
 [![Calc Game Demo](https://asciinema.org/a/PEJaPFdXO7jdyL9AgX7uGbDTr.svg)](https://asciinema.org/a/PEJaPFdXO7jdyL9AgX7uGbDTr)
+
+### Game "GCD"
+[![GCD Game Demo](https://asciinema.org/a/iPlfvB4LLrmID97IzfC02Yncb.svg)](https://asciinema.org/a/iPlfvB4LLrmID97IzfC02Yncb)
+
+### Game "Progression"
+[![Progression Game Demo](https://asciinema.org/a/6uHftPHmOT7LfX3rxUjMT4pFD.svg)](https://asciinema.org/a/6uHftPHmOT7LfX3rxUjMT4pFD)
