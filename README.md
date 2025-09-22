@@ -16,4 +16,7 @@
 [![GCD Game Demo](https://asciinema.org/a/iPlfvB4LLrmID97IzfC02Yncb.svg)](https://asciinema.org/a/iPlfvB4LLrmID97IzfC02Yncb)
 
 ### Game "Progression"
-[![Progression Game Demo](https://asciinema.org/a/6uHftPHmOT7LfX3rxUjMT4pFD.svg)](https://asciinema.org/a/6uHftPHmOT7LfX3rxUjMT4pFD)
+[![Progression Game Demo](https://asciinema.org/a/6uHftPHmOT7LfX3rxUjMT4pFD.svg)](https://asciinema.org/a/6uHftPHmOT7LfX3rxUjMT4pFD) 
+
+### Game "Prime"
+[![Prime Game Demo](https://asciinema.org/a/BN6GvXCeVy8UPLmBn0BDr2FgH.svg)](https://asciinema.org/a/BN6GvXCeVy8UPLmBn0BDr2FgH)
